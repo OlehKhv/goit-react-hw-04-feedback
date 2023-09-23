@@ -59,13 +59,26 @@ import { MainTitle } from './Section.styled';
 // };
 
 function reducer(prev, action) {
-  if (action.type === 'good') {
-    return { ...prev, [action.type]: prev[action.type] + action.payload };
-  } else if (action.type === 'neutral') {
-    return { ...prev, [action.type]: prev[action.type] + action.payload };
-  } else if (action.type === 'bad') {
-    return { ...prev, [action.type]: prev[action.type] + action.payload };
+  switch (action.type) {
+    case 'good':
+      return { ...prev, [action.type]: prev[action.type] + action.payload };
+
+    case 'neutral':
+      return { ...prev, [action.type]: prev[action.type] + action.payload };
+
+    case 'bad':
+      return { ...prev, [action.type]: prev[action.type] + action.payload };
+
+    // no default
   }
+
+  // if (action.type === 'good') {
+  //   return { ...prev, [action.type]: prev[action.type] + action.payload };
+  // } else if (action.type === 'neutral') {
+  //   return { ...prev, [action.type]: prev[action.type] + action.payload };
+  // } else if (action.type === 'bad') {
+  //   return { ...prev, [action.type]: prev[action.type] + action.payload };
+  // }
 }
 
 const Section = ({ title }) => {
